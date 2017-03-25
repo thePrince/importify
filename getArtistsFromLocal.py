@@ -7,7 +7,7 @@ import re
 blackListWords = [' no. ', ' disc ', 'www.', 'op.', '.com', ' .net', 'feat.', 'complete discography', 'discography']
 badChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_', '+', '@', ',', '!', '?', '~', '$', "'", '/', '#', '&']
 
-def getSongs(path):
+def getArtists(path):
 	artists = []
 	songMaps = []
 	try:
@@ -133,7 +133,7 @@ def main():
 	print 'example: /Volumes/FreeAgent Drive/Music/Mastodon/Leviathan/Aqua Dementia.mp3'
 	print ' '
 	pathToMusic = raw_input('music directory path: ')
-	artists = getSongs(pathToMusic)
+	artists = getArtists(pathToMusic)
 	return artists
 
 
