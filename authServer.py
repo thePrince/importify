@@ -6,6 +6,7 @@ PORT_NUMBER=8000
 
 #simple local server set up to receive spotify authorization redirect.  
 #code param is exchanged for an auth token, handled by Spotipy
+#this just needs to be done once per username; spotipy caches the auth/refresh tokens
 class AuthHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
@@ -20,7 +21,6 @@ class AuthHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 if __name__ == '__main__':
     server_class = BaseHTTPServer.HTTPServer
     httpd = server_class((HOST_NAME, PORT_NUMBER), AuthHandler)
-    
     try:
         print 'starting up auth server'
         httpd.serve_forever()
