@@ -8,7 +8,8 @@ control_c() {
     exit
 }
 
-python authServer.py &
+#run authserver in background
+nohup python authServer.py &
 PID=$!
 python songAdder.py
 kill $PID

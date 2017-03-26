@@ -22,20 +22,17 @@ def getIdsForArtists(listOfArtists):
 def getTopTracksForArtists(artistIdsList):
     print 'getting the top 5 tracks for each artist (this may take a while)'
     songIds = []
-    with open('songIds.txt', 'w') as songIdsFile:
-        for artistId in artistIdsList:
-            url = 'https://api.spotify.com/v1/artists/' + str(artistId) + '/top-tracks?country=US'
-            r = requests.get(url)
-            tracks = r.json()['tracks']
-            #limit to 2 songs per artist so you don't exceed spotify's 10,000 song limit
-            counter = 0
-            for song in tracks:
-                if counter >= 5:
-                    break
-                songIdsFile.write(song['id'] + '\n')
-                songIds.append(song['id'])
-                counter += 1
-    songIdsFile.close()
+    for artistId in artistIdsList:
+        url = 'https://api.spotify.com/v1/artists/' + str(artistId) + '/top-tracks?country=US'
+        r = requests.get(url)
+        tracks = r.json()['tracks']
+        #limit to 5 songs per artist so you don't exceed spotify's 10,000 song limit
+        counter = 0
+        for song in tracks:
+            if counter >= 5:
+                break
+            songIds.append(song['id'])
+            counter += 1
     return songIds
 
 #currently not used, but it could be useful at some point
