@@ -80,13 +80,16 @@ def getUsername():
 
 
 def main():
-    print 'starting the import pipeline'
-    listOfArtists = getArtistsFromLocal.main()
-    artistIds = getIdsForArtists(listOfArtists)
-    trackIds = getTopTracksForArtists(artistIds)
-    username = getUsername()
-    addTracksToLibray(trackIds, username)
-    print 'finished importing music.  please check your spotify to confirm.'
+    try:
+        print 'starting the import pipeline'
+        listOfArtists = getArtistsFromLocal.main()
+        artistIds = getIdsForArtists(listOfArtists)
+        trackIds = getTopTracksForArtists(artistIds)
+        username = getUsername()
+        addTracksToLibray(trackIds, username)
+        print 'finished importing music.  please check your spotify to confirm.'
+    except KeyboardInterrupt:
+        print 'terminating songAdder'
 
 if __name__ == '__main__':
     main()

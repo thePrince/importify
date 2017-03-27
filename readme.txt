@@ -1,4 +1,4 @@
-Spotifizer: a utility to import local music libraries to your Spotify account
+importify: a utility to import local music libraries to your Spotify account
 
 Dependencies: spotipy ('pip install spotipy')
 
