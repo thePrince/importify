@@ -1,8 +1,7 @@
 importify: a utility to import local music libraries to your Spotify account
 
-Dependencies: spotipy ('pip install spotipy')
+run.sh is the entrypoint which starts authserver and the find/add songs workflow
 
-launch the program with './run.sh'
-follow command line prompts for input such as filePath and username
+WIP with getting Docker setup
 
 individual components (getSongs, songAdder, authServer) can be run independently with added print statements for debugging
