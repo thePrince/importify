@@ -1,0 +1,9 @@
+version: "3.0"
+
+services:
+  importify:
+    #build section only uses defaults for now
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: importify
